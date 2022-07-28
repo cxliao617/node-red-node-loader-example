@@ -2,6 +2,6 @@
 Example for node-red-node-loader
 
 # Run test example
-```javascript=
+```javascript
 $ npm run test
 ```
