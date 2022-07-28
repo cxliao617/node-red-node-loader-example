@@ -1,0 +1,18 @@
+[
+    {
+        "id":"test-input",
+        "type": "inject",
+        "wires":[[]]
+    },
+    {
+        "id":"test-function",
+        "type": "function",
+        "func":"\" return msg\"",
+        "wires":[[]]
+    },
+    {
+        "id":"test-debug",
+        "type": "debug",
+        "wires":[[]]
+    }
+]

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="jest tests" tests="1" failures="0" errors="0" time="0.682">
+  <testsuite name="test node red flow" errors="0" failures="0" skipped="0" timestamp="2022-07-28T08:58:58" time="0.646" tests="1">
+    <testcase classname="test node red flow test node loader" name="test node red flow test node loader" time="0.048">
+    </testcase>
+  </testsuite>
+</testsuites>
