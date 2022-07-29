@@ -6,10 +6,20 @@
     },
     {
         "id":"test-function",
-        "type": "function",
-        "func":"\" return msg\"",
+        "type": "tcp in",
         "wires":[[]]
     },
+    {
+        "id":"test-function1",
+        "type": "tcp out",
+        "wires":[[]]
+    },
+    {
+        "id":"test-function2",
+        "type": "catch",
+        "wires":[[]]
+    },
+    
     {
         "id":"test-debug",
         "type": "debug",
