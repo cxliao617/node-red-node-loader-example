@@ -4,7 +4,7 @@ module.exports = {
         "^.+\\.(t|j)sx?$":"ts-jest"
     },
     testEnvironment: "node",
-    testTimeout: 600000,
+    testTimeout: 60000,
     testPathIgnorePatterns:[
         "/node_modules/",
         "/dist/"

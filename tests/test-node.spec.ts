@@ -1,5 +1,6 @@
-import NodeLoader from 'node-red-node-loader'
+import {NodeLoader} from 'node-red-node-loader'
 import helper from 'node-red-node-test-helper'
+
 import fs from 'fs/promises'
 helper.init(require.resolve('node-red'))
 
@@ -19,9 +20,12 @@ describe("test node red flow",()=>{
         fs.readFile(FILENAME,'utf-8').then((res)=>{
             console.log(res)
             const flow = JSON.parse(res)
-            const nodeArr = NodeLoader(res)
+            const nodeArr = new NodeLoader().getNodeArray(res,['catch'])
             console.log(nodeArr)
+            
             helper.load(nodeArr,flow,()=>{
+                const n0 = helper.getNode("test-input")
+                console.log(n0)
                 done()
             })
             // done()
