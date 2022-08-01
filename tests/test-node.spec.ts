@@ -18,7 +18,6 @@ describe("test node red flow",()=>{
     })
     it("test node loader with node-red-node-loader and using done",(done)=>{
         fs.readFile(FILENAME,'utf-8').then(async(res)=>{
-            console.log(res)
             const flow = JSON.parse(res)
             const nodeArr = new NodeLoader().getNodeArray(res)
             
@@ -28,7 +27,6 @@ describe("test node red flow",()=>{
                 n0.send({payload:"UpperCase"})
                 n1.on('input',(msg)=>{
                     try{
-                        console.log(msg)
                         done()
                     }
                     catch(err)
@@ -39,9 +37,8 @@ describe("test node red flow",()=>{
             })
         })
     })
-    it("test node loader with node-red-node-loader and using async",(done)=>{
-        fs.readFile(FILENAME,'utf-8').then(async(res)=>{
-            console.log(res)
+    it("test node loader with node-red-node-loader and using async",async()=>{
+        await fs.readFile(FILENAME,'utf-8').then(async(res)=>{
             const flow = JSON.parse(res)
             const nodeArr = new NodeLoader().getNodeArray(res)
             
@@ -52,7 +49,6 @@ describe("test node red flow",()=>{
                 n0.send({payload:"UpperCase"})
                 n1.on('input',(msg)=>{
                     try{
-                        console.log(msg)
                         resolve(msg)
                     }
                     catch(err)
@@ -66,13 +62,10 @@ describe("test node red flow",()=>{
     it("test node loader with node-red-node-loader, node-red-test-helper-tool and using async",async()=>{
         const testServer = new NodeRedTestServer(helper)
         await fs.readFile(FILENAME,'utf-8').then(async(res)=>{
-            console.log(res)
             const flow = JSON.parse(res)
             const nodeArr = new NodeLoader().getNodeArray(res)
-            console.log(nodeArr)
              
             const testOuput = await testServer.testFlow(nodeArr,flow,'n0','n1',{payload:"UpperCase"})
-            console.log(testOuput)
 
         })
     })
