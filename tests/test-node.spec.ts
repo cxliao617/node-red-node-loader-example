@@ -1,6 +1,6 @@
 import {NodeLoader} from 'node-red-node-loader'
 import helper from 'node-red-node-test-helper'
-
+import {NodeRedTestServer} from 'node-red-test-helper-tool'
 import fs from 'fs/promises'
 helper.init(require.resolve('node-red'))
 
@@ -14,21 +14,66 @@ describe("test node red flow",()=>{
         helper.stopServer(done)
     })
     afterEach(()=>{
-        // helper.unload()
+        helper.unload()
     })
-    it("test node loader",(done)=>{
-        fs.readFile(FILENAME,'utf-8').then((res)=>{
+    it("test node loader with node-red-node-loader and using done",(done)=>{
+        fs.readFile(FILENAME,'utf-8').then(async(res)=>{
             console.log(res)
             const flow = JSON.parse(res)
-            const nodeArr = new NodeLoader().getNodeArray(res,['catch'])
-            console.log(nodeArr)
+            const nodeArr = new NodeLoader().getNodeArray(res)
             
-            helper.load(nodeArr,flow,()=>{
-                const n0 = helper.getNode("test-input")
-                console.log(n0)
-                done()
+            helper.load([...nodeArr],flow,()=>{
+                const n0 = helper.getNode("n0")
+                const n1 = helper.getNode("n1")
+                n0.send({payload:"UpperCase"})
+                n1.on('input',(msg)=>{
+                    try{
+                        console.log(msg)
+                        done()
+                    }
+                    catch(err)
+                    {
+                        done(err)
+                    }
+                })
             })
-            // done()
+        })
+    })
+    it("test node loader with node-red-node-loader and using async",(done)=>{
+        fs.readFile(FILENAME,'utf-8').then(async(res)=>{
+            console.log(res)
+            const flow = JSON.parse(res)
+            const nodeArr = new NodeLoader().getNodeArray(res)
+            
+            await helper.load([...nodeArr],flow)
+            const n0 = helper.getNode("n0")
+            const n1 = helper.getNode("n1")
+            await new Promise((resolve,reject)=>{
+                n0.send({payload:"UpperCase"})
+                n1.on('input',(msg)=>{
+                    try{
+                        console.log(msg)
+                        resolve(msg)
+                    }
+                    catch(err)
+                    {
+                        reject(err)
+                    }
+                })
+            })
+        })
+    })
+    it("test node loader with node-red-node-loader, node-red-test-helper-tool and using async",async()=>{
+        const testServer = new NodeRedTestServer(helper)
+        await fs.readFile(FILENAME,'utf-8').then(async(res)=>{
+            console.log(res)
+            const flow = JSON.parse(res)
+            const nodeArr = new NodeLoader().getNodeArray(res)
+            console.log(nodeArr)
+             
+            const testOuput = await testServer.testFlow(nodeArr,flow,'n0','n1',{payload:"UpperCase"})
+            console.log(testOuput)
+
         })
     })
 } )

@@ -3,6 +3,8 @@
 
 # Production
 /build
+/test_reports
+/coverage
 
 # Generated files
 .docusaurus

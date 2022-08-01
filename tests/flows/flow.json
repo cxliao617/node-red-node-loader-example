@@ -1,28 +1,21 @@
 [
     {
-        "id":"test-input",
+        "id":"n0",
         "type": "inject",
-        "wires":[[]]
+        "z":"f1",
+        "wires":[["n1"]]
     },
     {
-        "id":"test-function",
-        "type": "tcp in",
-        "wires":[[]]
+        "id":"n1",
+        "type": "function",
+        "z":"f1",
+        "func":"\n return msg\n",
+        "wires":[["n2"]]
     },
     {
-        "id":"test-function1",
-        "type": "tcp out",
-        "wires":[[]]
-    },
-    {
-        "id":"test-function2",
-        "type": "catch",
-        "wires":[[]]
-    },
-    
-    {
-        "id":"test-debug",
+        "id":"n2",
         "type": "debug",
+        "z":"f1",
         "wires":[[]]
     }
 ]
