@@ -40,8 +40,8 @@ describe("test node red flow",()=>{
     it("test node loader with node-red-node-loader and using async",async()=>{
         await fs.readFile(FILENAME,'utf-8').then(async(res)=>{
             const flow = JSON.parse(res)
-            const nodeArr = new NodeLoader().getNodeArray(res)
-            
+            // const nodeArr = new NodeLoader().getNodeArray(res)
+            const nodeArr = new NodeLoader().getNodeArrayFromFlow(flow)
             await helper.load([...nodeArr],flow)
             const n0 = helper.getNode("n0")
             const n1 = helper.getNode("n1")

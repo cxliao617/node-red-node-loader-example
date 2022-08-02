@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="3" failures="0" errors="0" time="1.254">
-  <testsuite name="test node red flow" errors="0" failures="0" skipped="0" timestamp="2022-08-01T14:26:03" time="1.217" tests="3">
+<testsuites name="jest tests" tests="3" failures="0" errors="0" time="1.276">
+  <testsuite name="test node red flow" errors="0" failures="0" skipped="0" timestamp="2022-08-02T01:36:18" time="1.238" tests="3">
     <testcase classname="test node red flow test node loader with node-red-node-loader and using done" name="test node red flow test node loader with node-red-node-loader and using done" time="0.021">
     </testcase>
     <testcase classname="test node red flow test node loader with node-red-node-loader and using async" name="test node red flow test node loader with node-red-node-loader and using async" time="0.005">
