@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="3" failures="0" errors="0" time="1.276">
-  <testsuite name="test node red flow" errors="0" failures="0" skipped="0" timestamp="2022-08-02T01:36:18" time="1.238" tests="3">
-    <testcase classname="test node red flow test node loader with node-red-node-loader and using done" name="test node red flow test node loader with node-red-node-loader and using done" time="0.021">
+<testsuites name="jest tests" tests="5" failures="0" errors="0" time="1.252">
+  <testsuite name="test node red flow" errors="0" failures="0" skipped="0" timestamp="2022-08-04T12:34:10" time="1.227" tests="5">
+    <testcase classname="test node red flow test node loader with node-red-node-loader and using done" name="test node red flow test node loader with node-red-node-loader and using done" time="0.019">
     </testcase>
     <testcase classname="test node red flow test node loader with node-red-node-loader and using async" name="test node red flow test node loader with node-red-node-loader and using async" time="0.005">
     </testcase>
-    <testcase classname="test node red flow test node loader with node-red-node-loader, node-red-test-helper-tool and using async" name="test node red flow test node loader with node-red-node-loader, node-red-test-helper-tool and using async" time="0.005">
+    <testcase classname="test node red flow test node loader with node-red-node-loader, node-red-test-helper-tool and using async. testFlow" name="test node red flow test node loader with node-red-node-loader, node-red-test-helper-tool and using async. testFlow" time="0.007">
+    </testcase>
+    <testcase classname="test node red flow test node loader with node-red-node-loader, node-red-test-helper-tool and using async. healthCheck" name="test node red flow test node loader with node-red-node-loader, node-red-test-helper-tool and using async. healthCheck" time="0.004">
+    </testcase>
+    <testcase classname="test node red flow test node loader with node-red-node-loader, node-red-test-helper-tool and using async" name="test node red flow test node loader with node-red-node-loader, node-red-test-helper-tool and using async" time="0.023">
     </testcase>
   </testsuite>
 </testsuites>
